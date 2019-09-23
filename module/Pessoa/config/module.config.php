@@ -38,5 +38,6 @@ return [
 		'database' => __DIR__ . '/../sqlite.db'
 		],
 ];
+
 // /pessoa/listar/todos
 // /pessoa/editar/1
