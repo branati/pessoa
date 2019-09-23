@@ -1,0 +1,78 @@
+<?php
+$title = "Adicionando nova pessoa";
+$this->headTitle($title);
+?>
+<h1><?=$this->escapeHtml($title)?></h1>
+<?php
+$form->setAttribute('action',$this->url('pessoa',['action'=>'adicionar']));
+$form->prepare();
+echo $this->form()->openTag($form);
+$id = $this->form->get('id');
+$nome = $this->form->get('nome');
+$foto = $this->form->get('foto');
+$email = $this->form->get('email');
+$datanascimento = $this->form->get('datanascimento');
+$localidade = $this->form->get('localidade');
+$interesses = $this->form->get('interesses');
+$nome->setAttribute('class','form-control');
+$foto->setAttribute('class','form-control');
+$email->setAttribute('class','form-control');
+$datanascimento->setAttribute('class','form-control');
+$localidade->setAttribute('class','form-control');
+$interesses->setAttribute('class','form-control');
+$nome->setAttribute('autofocus','autofocus');
+$submit = $this->form->get('submit');
+$submit->setAttribute('class','btn btn-primary btn-lg');
+?>
+<?=$this->formElement($id)?>
+<div class="row">
+    <?=$this->formElement($submit)?>
+</div>
+<div class="form-group">
+    <div class="col-md-6">
+        <?=$this->formLabel($nome)?>
+        <?=$this->formElement($nome)?>
+        <?=$this->formElementErrors()->render($nome,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-6">
+        <?=$this->formLabel($foto)?>
+        <img src="<?= __DIR__ . "/../images/"?><?=$this->formElement($foto)?>">
+        <?=$this->formElementErrors()->render($foto,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-8">
+        <?=$this->formLabel($email)?>
+        <?=$this->formElement($email)?>
+        <?=$this->formElementErrors()->render($email,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($datanascimento)?>
+        <?=$this->formElement($datanascimento)?>
+        <?=$this->formElementErrors()->render($datanascimento,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($localidade)?>
+        <?=$this->formElement($localidade)?>
+        <?=$this->formElementErrors()->render($localidade,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($interesses)?>
+        <?=$this->formElement($interesses)?>
+        <?=$this->formElementErrors()->render($interesses,['class'=>'help-block'])?>
+    </div>
+</div>
+<div class="row">
+    <?=$this->formElement($submit)?>
+    <a href="<?=$this->url('pessoa',['action'=>'index'])?>" class="btn btn-warning">
+    Voltar</a>
+</div>
+<hr/>

@@ -1,0 +1,18 @@
+<?php
+//phpinfo();
+var_dump($pessoas);
+?>
+<h1>Lista de Pessoas</h1>
+<table class="table table-stripped">
+	<tr>
+		<th>Nome</th>
+	</tr>
+<?php
+	foreach ($pessoas as $pes ):
+		?>
+		<tr>
+			<td><?= $pes->getNome() ?></td>
+		</tr>
+
+	<?php endforeach; ?>
+</table>
